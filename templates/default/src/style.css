@@ -1,0 +1,10 @@
+/* src/style.css */
+@import "tailwindcss";
+/* 1. 注入 Tailwind 的基础重置样式（推荐） */
+@tailwind base;
+
+/* 2. 注入 Tailwind 的组件类（如 container） */
+@tailwind components;
+
+/* 3. 注入 Tailwind 的工具类（如 w-[500px], bg-red-500 等） */
+@tailwind utilities;

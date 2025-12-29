@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "types": ["node"],  // 显式引入 node 类型
+    /* 基础选项 */
+    "target": "ES2020",                   // 现代 Node.js 环境支持较好的版本
+    "module": "CommonJS",                 // CLI 通常编译为 CommonJS 兼容性更好
+    "lib": ["ES2020"],                    // 包含的库文件定义
+    "rootDir": "./",                      // 项目根目录
+    "moduleResolution": "node",           // 按照 Node.js 模块查找规则
+
+    /* 严格类型检查 */
+    "strict": true,                       // 开启所有严格类型检查
+    "noImplicitAny": true,                // 禁止隐式 any
+    "skipLibCheck": true,                 // 跳过库文件的类型检查 (加快编译)
+
+    /* 互操作性与模块解析 */
+    "esModuleInterop": true,              // 允许 import path from 'path' 这种写法
+    "allowSyntheticDefaultImports": true, // 允许对没有默认导出的模块使用默认导入
+    "resolveJsonModule": true,            // 允许导入 .json 文件 (读取 package.json 必需)
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+
+    /* 构建设置 */
+    "outDir": "./dist",                   // 编译后的文件存放位置
+    "declaration": false,                 // 如果不作为库给别人引用，可以设为 false
+    "removeComments": true,               // 移除注释
+
+    /* 路径映射 (可选) */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "bin/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "templates",                          // 重点：排除模板文件夹，防止 TS 编译里面的代码
+    "dist"
+  ]
+}

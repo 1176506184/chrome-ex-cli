@@ -1,0 +1,1 @@
+chrome.runtime.onMessage.addListener(async function(t,e,i){t.Message==="loadScript"&&(await chrome.scripting.executeScript({target:{tabId:e.tab.id},files:["scripts/modules/"+t.script],injectImmediately:!0}),i(200))});
