@@ -80,12 +80,14 @@ my-extension/
 ├── dist/               # 编译输出目录（加载至浏览器的最终代码）
 ├── release/            # 存放 npm run zip 生成的压缩包
 ├── src/
-│   ├── popup/          # 插件弹窗界面 (Vue 3 源码)
-│   ├── options/        # 插件配置页面 (Vue 3 源码)
-│   ├── background/     # Service Worker 后台脚本
-│   └── content/        # Content Scripts 内容脚本
-├── scripts/            # 核心拦截脚本 (proxy.js 存放处)
-├── templates/          # 基础 Manifest 与 HTML 模板
+│   ├── popup/          # 插件弹窗界面 (html 源码)
+│   ├── vue/            # 插件配置页面 (Vue 3 源码)
+│   └── scripts
+│       ├── background.ts     # Service Worker 后台脚本
+│       ├── content.ts        # Content Scripts 内容脚本
+│       ├── modules/          # 核心脚本 
+│       └── proxy.ts          # 拦截脚本
+├── public/             # 公共文件存放处
 └── package.json
 
 ```
