@@ -1,6 +1,6 @@
 {
   "name": "chrome-ex-cli",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "一个现代化的 Chrome 扩展开发工具",
   "main": "dist/src/create.js",
   "bin": {
