@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch --mode development"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",

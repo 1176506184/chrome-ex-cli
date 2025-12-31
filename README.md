@@ -22,6 +22,7 @@
 首先，通过 npm 全局安装 CLI 工具：
 
 ```bash
+git clone [https://github.com/1176506184/chrome-ex-cli](https://github.com/1176506184/chrome-ex-cli)
 npm install chrome-ex-cli -g
 
 ```
@@ -62,58 +63,38 @@ npm run dev
 
 ---
 
-## 📦 生产构建与打包
+## 🛠 安装与克隆
 
-当你准备发布插件到 Chrome 商店时，可以使用以下命令：
+你可以直接克隆仓库到本地进行开发：
 
-| 命令              | 描述                                          |
-|-----------------|---------------------------------------------|
-| `npm run build` | 构建生产环境代码，进行混淆和压缩优化。 自动将 `dist` 目录压缩并保存在根目录。 |
-| `npm run dev`   | 开发模式热重载                                     |
-
----
-
-## 📂 项目目录结构
-
-```text
-my-extension/
-├── dist/               # 编译输出目录（加载至浏览器的最终代码）
-├── release/            # 存放 npm run zip 生成的压缩包
-├── src/
-│   ├── popup/          # 插件弹窗界面 (html 源码)
-│   ├── vue/            # 插件配置页面 (Vue 3 源码)
-│   └── scripts
-│       ├── background.ts     # Service Worker 后台脚本
-│       ├── content.ts        # Content Scripts 内容脚本
-│       ├── modules/          # 核心脚本 
-│       └── proxy.ts          # 拦截脚本
-├── public/             # 公共文件存放处
-└── package.json
-
+```bash
+git clone [https://github.com/1176506184/chrome-ex-cli](https://github.com/1176506184/chrome-ex-cli)
 ```
 
 ---
 
-## 🔍 功能亮点：接口拦截 (Proxy Mode)
+## 🔍 功能亮点详析
 
-本工具默认集成了强大的接口监听逻辑。通过修改生成的项目中的 `scripts/proxy.js`，你可以：
+### 🕸️ 深度接口拦截 (基于 ajax-hook)
 
-* **实时监控**：在浏览器控制台直接打印网页的所有接口请求和返回结果。
-* **动态 Mock**：根据需求拦截特定请求并修改返回数据，无需修改后端代码。
-* **灵活控制**：通过插件内的 `chrome.storage.local` 动态开启或关闭拦截逻辑。
+本工具底层集成了 **ajax-hook** 库，通过对全局 `XMLHttpRequest` 和 `fetch` 的劫持，实现在 `scripts/proxy.js` 中对数据的掌控：
 
----
+* **全量监控**：实时捕获网页发出的所有网络请求及返回的 Response 数据。
+* **动态 Mock**：在不修改后端代码的情况下，直接修改请求参数或替换返回结果。
+* **持久化配置**：支持结合 `chrome.storage.local` 动态开启或关闭拦截逻辑。
 
-## 🤝 贡献与反馈
+### 🌈 极致开发体验 (Vue 3 + Tailwind CSS)
 
-如果你在使用中遇到问题（如依赖安装失败或
-Bug），欢迎提交 [Issue](https://www.google.com/search?q=https://github.com/1176506184/chrome-ex-cli/issues)。
+* **Vue 3 (Composition API)**：使用响应式开发模式构建复杂的 Popup 和 Sidepanel 交互。
+* **Tailwind CSS**：项目已预设 twcss 环境，支持通过类名快速布局。例如：
+```html
+<div class="p-4 bg-blue-500 text-white rounded-lg shadow-lg">
+  Hello Chrome Extension!
+</div>
 
-1. Fork 本仓库
-2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交你的修改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送分支 (`git push origin feature/AmazingFeature`)
-5. 发起一个 Pull Request
+```
+
+
 
 ---
 

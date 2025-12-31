@@ -3,13 +3,15 @@ import {resolve} from 'path';
 import {copyManifest, getScriptEntries, htmlPathFixer, zipBundle} from "./utils";
 import vue from '@vitejs/plugin-vue';
 
+const isDev = process.argv.includes('--watch');
+
 export default defineConfig({
     root: resolve(__dirname, 'src'),
     base: './',
     css: {
         postcss: resolve(__dirname, 'postcss.config.ts'), // 强制指向根目录的文件
     },
-    plugins: [vue(), copyManifest(), htmlPathFixer(), zipBundle()],
+    plugins: [vue(), copyManifest(), htmlPathFixer(), !isDev && zipBundle()],
     publicDir: resolve(__dirname, 'public'),
     build: {
         emptyOutDir: true,
