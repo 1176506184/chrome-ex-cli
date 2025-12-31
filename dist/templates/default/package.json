@@ -1,11 +1,11 @@
 {
   "name": "chrome-ex-cli",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch --mode development"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
